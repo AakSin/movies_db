@@ -1,3 +1,4 @@
-
-# mycursor.execute("Insert INTO Shows VALUES (%s,%s,%s,%s)",(1,1,"16:00",50))
-# db.commit()
+ for i in mycursor:
+        for j in i:
+            print(str(j),end=" ")
+        print()
