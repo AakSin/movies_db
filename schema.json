@@ -1,4 +1,4 @@
-I have a school project wherein I need to create a movie ticket booking system. I am not very familiar with relational/sql databases. I can define the schema in a noSQL/json format. Can anyone tell me how I will be able to implement this schema in sql.
+
 {movies:[
     {
     index=1
