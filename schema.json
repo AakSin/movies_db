@@ -1,0 +1,33 @@
+I have a school project wherein I need to create a movie ticket booking system. I am not very familiar with relational/sql databases. I can define the schema in a noSQL/json format. Can anyone tell me how I will be able to implement this schema in sql.
+{movies:[
+    {
+    index=1
+    name:"ABC",
+    director:"XYZ",
+    language:"English",
+    genre:"Thriller",
+    shows:[
+        {index="1",
+        timing:"4:15 PM",
+        seats_left=50},
+        {index="2",
+        timing:"7:15 PM",
+        seats_left=30}
+    ]
+    },
+    {
+    index=2
+    name:"DEF",
+    director:"LMN",
+    language:"English",
+    genre:"Action",
+    shows:[
+        {index="1",
+        timing:"4:15 PM",
+        seats_left=50},
+        {index="2",
+        timing:"7:15 PM",
+        seats_left=30}
+    ]
+    }
+]
