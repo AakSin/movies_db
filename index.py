@@ -69,32 +69,40 @@ def showSelectedMovieTimings():
 def signUp():
     global un
     global pw
-    un=input("Enter username: ")
-    pw=input("Enter password: ")
-    try:
-        mycursor.execute("Insert INTO Users VALUES (%s,%s)",(un,pw))
-        db.commit()
-    except:
-        print("Your username is taken")
+    while True:
+        un=input("Enter username: ")
+        pw=input("Enter password: ")
+        try:
+            mycursor.execute("Insert INTO Users VALUES (%s,%s)",(un,pw))
+            db.commit()
+            break
+        except:
+            print("Your username is taken")
     
 
 def logIn():
     global un
     global pw
-    un=input("Enter username: ")
-    mycursor.execute("SELECT un from users where un='%s';"%un)
-    if (int(len(list(mycursor)))>0):
-        print("username verified")
-    else:
-        print("that username wasn't found")
-        return
-    pw=input("Enter password: ")
-    mycursor.execute("SELECT password from users where un='%s';"%un )
-    for i in mycursor:
-        if i[0]==pw:
+    
+    while True:
+        un=input("Enter username: ")
+        mycursor.execute("SELECT un from users where un='%s';"%un)
+        if (int(len(list(mycursor)))>0):
+            print("username verified")
+            break
+        else:
+            print("that username wasn't found")
+    
+    while True:    
+        pw=input("Enter password: ")
+        mycursor.execute("SELECT password from users where un='%s';"%un )
+        if mycursor.fetchone()[0]==pw:
             print("Password verified")
+            break
         else:
             print("Password Failed")
+
+
 def bookShow():
     global currentShow
     currentShow=int(input("Enter your show's id "))
@@ -143,18 +151,20 @@ while True:
     x=int(input())
     if x==1:
         showMovies()
-    if x==2:
+    elif x==2:
         showMovieTimings()
-    if x==3:
+    elif x==3:
         showSelectedMovieTimings()
-    if x==4:
+    elif x==4:
         bookShow()
         print("Here are all the shows you have booked")
         showBookings()
-    if x==5:
+    elif x==5:
         showBookings()
-    if x==6:
+    elif x==6:
         break  
+    else:
+        print("Please enter a correct number.")
 
 
 
