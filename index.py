@@ -71,8 +71,13 @@ def signUp():
     global pw
     un=input("Enter username: ")
     pw=input("Enter password: ")
-    mycursor.execute("Insert INTO Users VALUES (%s,%s)",(un,pw))
-    db.commit()
+    try:
+        mycursor.execute("Insert INTO Users VALUES (%s,%s)",(un,pw))
+        db.commit()
+    except:
+        print("Your username is taken")
+    
+
 def logIn():
     global un
     global pw
